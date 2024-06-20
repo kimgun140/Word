@@ -1,0 +1,16 @@
+﻿<Page x:Class="Word.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Word"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+
+    <Grid>
+        <Button x:Name="btn_CC" Content="고객용" HorizontalAlignment="Left" Height="192" Margin="139,0,0,0" VerticalAlignment="Center" Width="192" FontSize="24" Click="btn_CC_Click" Background="#FF80C0E2" BorderBrush="{x:Null}" Foreground="White"/>
+        <Button x:Name="btn_CS" Content="직원용" HorizontalAlignment="Left" Height="192" Margin="457,0,0,0" VerticalAlignment="Center" Width="192" FontSize="24" Background="#FF80C0E2" BorderBrush="{x:Null}" Foreground="White" Click="btn_CS_Click"/>
+
+    </Grid>
+</Page>
