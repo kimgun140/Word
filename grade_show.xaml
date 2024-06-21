@@ -22,9 +22,24 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Name="ty3" x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="Background" Value="#fF80C0E2" ></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="Content" Value="Login" ></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Template">
+                <Setter.Value >
+                    <ControlTemplate TargetType="Button" >
+                        <Border Background="{TemplateBinding Background}"   BorderThickness="1" BorderBrush="Black"  CornerRadius="3">
+                            <ContentPresenter  HorizontalAlignment="Center"  VerticalAlignment="Center" Content="미리보기"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
-        <Style x:Name="ttyy" x:Key="textStyle2" TargetType="TextBox">
+        <Style x:Name="meribogi" x:Key="textStyle2" TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate x:Name="ty2" TargetType="TextBox">
@@ -97,7 +112,7 @@
         <TextBox x:Name="back_1" Style="{StaticResource textStyle2}" Width="120" Height="40" Margin="413,330,267,64" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
         <TextBox x:Name="user_id" TextWrapping="Wrap" BorderThickness="0" Text="ID입력" Width="110" Margin="417,335,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"  />
         <Button Style="{StaticResource ButtonStyle1}" Content="그래프 작성버튼" Margin="583,320,76,56" Click="Button_Click"/>
-        <ListView x:Name="score_listview" Style="{StaticResource listviewstyle}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="26,35,439,242" Width="335" Height="155" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <ListView x:Name="score_listview" Style="{StaticResource listviewstyle}" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="65,40,0,0" Width="335" Height="155" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="아이디" DisplayMemberBinding="{Binding ID}" Width="100"/>
@@ -105,7 +120,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView x:Name="user_list" Margin="10,220,390,56" Width="400" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <ListView x:Name="user_list" Margin="10,258,0,0" Width="400" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="아이디" Width="100" DisplayMemberBinding="{Binding ID}" />
@@ -114,7 +129,9 @@
 
 
         </ListView>
-        <Button Content="Button" Margin="604,0,0,0" Width="100" Height="100" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Button_Click_1"/>
-        <TextBlock x:Name="test" TextWrapping="Wrap" Text="TextBlock" Margin="448,22,110,325" Width="200" Height="80"/>
+        <Button Style="{StaticResource ButtonStyle2}" Content="Button" Margin="604,244,0,0" Width="100" Height="51" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <TextBox TextWrapping="Wrap" Text="미리보기" IsReadOnly="True" TextAlignment="Center" Width="120" Margin="112,231,568,181" BorderThickness="0"/>
+        <TextBox TextWrapping="Wrap" Text="성적확인" Width="120" IsReadOnly="True" TextAlignment="Center" Margin="65,10,615,389" Panel.ZIndex="-1" BorderThickness="0"/>
+
     </Grid>
 </Window>

@@ -27,18 +27,10 @@ namespace EMPCLIENT
     {
         NetworkStream stream = Home.clients.GetStream(); //데이터 전송에 사용된 스트림
 
-        //public static TcpClient client = new TcpClient("10.10.21.118", 5004);
-
-        //public static TcpClient client = new TcpClient("10.10.21.109", 5017);
-        //public static TcpClient client = new TcpClient("10.10.21.111", 7997);
-
-
-
         public MainPage()
         {
             InitializeComponent();
         }
-
 
 
         private void MoveEMP_Login_Click(object sender, RoutedEventArgs e)
