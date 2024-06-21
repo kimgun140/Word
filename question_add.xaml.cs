@@ -76,20 +76,7 @@ namespace EMPCLIENT
                 Thread.Sleep(100);
             }
         }
-        //public void Quest_(JToken obj)
-        //{
-        //    if (obj != null)
-        //    {
-        //        foreach (var ans_ in obj)
-        //        {
-        //            MyData myData = new MyData(); //객체를 계속 만들어줘야함
-        //            myData.word = ans_["Keyword"].ToString();
-        //            myData.meaning = ans_["Answer"].ToString().Replace('\n', ' ') + '\n';
-        //            //addstring = ques.Qus_key + ques.Qus_ans;
-        //            myDatas.Add(myData);
-        //        }
-        //    }
-        //}
+
         private void Button_Click_1(object sender, RoutedEventArgs e) // 미리보기 버튼 
         {
 
@@ -114,15 +101,17 @@ namespace EMPCLIENT
 
             }
 
-
-
-
             MyData myData = new MyData();
             data = null;
             data = new byte[2000];
             string responses = "";
             int bytes = stream.Read(data, 0, data.Length);
             responses = Encoding.UTF8.GetString(data, 0, bytes);
+            if(responses != "터짐")
+            {
+                //MessageBox.Show("검색어를 정확히 입력해주세요!");
+
+           
             testbox.Text = responses + "\n";
 
 
@@ -142,14 +131,20 @@ namespace EMPCLIENT
                 question_listview.ItemsSource = myDatas;
                 question_listview.Items.Refresh();
             }
+
+
+            }
             else
             {
                 MessageBox.Show("검색어를 정확히 입력해주세요!");
             }
-
-
         }
 
+
+        public void aass()
+        {
+
+        }
 
     }
 }

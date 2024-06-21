@@ -27,8 +27,8 @@ namespace Word
     {
         static readonly HttpClient API = new HttpClient();
         byte[] data = new byte[256];
-        /* public static TcpClient clients = new TcpClient("10.10.21.118", 5001); //연결객체*/
-        public static TcpClient clients = new TcpClient("10.10.21.111", 8000); //연결객체
+         public static TcpClient clients = new TcpClient("10.10.21.118", 5000); //연결객체
+        //public static TcpClient clients = new TcpClient("10.10.21.111", 8000); //연결객체
         static NetworkStream stream = clients.GetStream();
         public Home()
         {
