@@ -11,15 +11,14 @@ namespace Word
     /// </summary>
     public class MyData
     {
-        public string word { get; set; }
-        public string mean { get; set; }
-
         public List<string> words { get; set; } = new List<string>();
         public List<string> means { get; set; } = new List<string>();
+
     }
 
     public partial class Edu : Page
     {
+        int cnt = 0;
         MyData MyData = new MyData();
         NetworkStream stream = Home.clients.GetStream();
         byte[] data = new byte[256];
@@ -32,11 +31,13 @@ namespace Word
             InitializeComponent();
             txt_mean.Text = "";
             Task.Run(() => Read_Edu());
+            
+            
         }
 
         public async Task Read_Edu()
         {
-            int databyte = 1;
+            int databyte = 0;
             while (true)
             {
                 byte[] recv_data = new byte[2000];
@@ -54,21 +55,19 @@ namespace Word
 
                     if (dictionary != null)
                     {
-                        int i = 0;
                         foreach (var kvp in dictionary)
-                        {
+                        { 
                             MyData.words.Add(kvp.Key);
                             MyData.means.Add(kvp.Value);
-
-                            
-                            await Dispatcher.BeginInvoke(new Action(async () =>
-                            {
-                                txt_mean.Text = "";
-                                txt_mean.Text += MyData.words[i] + " : " + MyData.means[i] + "\n";
-                                i++;
-                            }));
-
+                           
                         }
+                        await Dispatcher.BeginInvoke(new Action(async () =>
+                        {
+                            txt_mean.Text = "";
+                            txt_mean.Text += MyData.words[0] + " : " + MyData.means[0] + "\n";
+
+                        }));
+
                     }
                 }
                 catch (Exception ex)
@@ -79,6 +78,17 @@ namespace Word
                     }));
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (cnt < MyData.words.Count-1)
+            {
+                cnt++;
+                txt_mean.Text = "";
+                txt_mean.Text = MyData.words[cnt] + " : " + MyData.means[cnt];
+            }
+  
         }
     }
 }

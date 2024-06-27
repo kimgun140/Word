@@ -10,13 +10,13 @@
 
     <Grid>
         <Label Content="문제풀이 내역" HorizontalAlignment="Left" Height="54" Margin="42,22,0,0" VerticalAlignment="Top" Width="248" FontSize="20"/>
-        <ListView HorizontalAlignment="Center" Height="287" Margin="0,97,0,0" VerticalAlignment="Top" Width="716" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView x:Name="lstv_history" HorizontalAlignment="Center" Height="287" Margin="0,97,0,0" VerticalAlignment="Top" Width="716" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="답안" Width="100"/>
-                    <GridViewColumn Header="문제" Width="400"/>
-                    <GridViewColumn Header="정답여부" Width="100"/>
-                    <GridViewColumn Header="날짜" Width="100"/>
+                    <GridViewColumn Header="답안" Width="100" DisplayMemberBinding="{Binding Column1}" />
+                    <GridViewColumn Header="문제" Width="400" DisplayMemberBinding="{Binding Column2}"/>
+                    <GridViewColumn Header="정답여부" Width="100" DisplayMemberBinding="{Binding Column3}"/>
+                    <GridViewColumn Header="날짜" Width="100" DisplayMemberBinding="{Binding Column4}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -15,13 +15,5 @@
         <Button x:Name="btn_anwer" Content="답안 제출" HorizontalAlignment="Left" Height="43" Margin="639,376,0,0" VerticalAlignment="Top" Width="132" Background="#FF80C0E2" Foreground="White" BorderBrush="{x:Null}" Click="btn_anwer_Click"/>
         <Button x:Name="btn_next" Content="다음 문제" HorizontalAlignment="Left" Height="42" Margin="477,376,0,0" VerticalAlignment="Top" Width="132" Background="#FF80C0E2" Foreground="White" BorderBrush="{x:Null}" Click="btn_next_Click"/>
         <Image x:Name="img_read" HorizontalAlignment="Left" Height="168" Margin="42,250,0,0" VerticalAlignment="Top" Width="248"/>
-        <ListView x:Name="listv_quiz" d:ItemsSource="{d:SampleData ItemCount=5}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="답" Width="100"/>
-                    <GridViewColumn Header="문제" Width="500"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
     </Grid>
 </Page>

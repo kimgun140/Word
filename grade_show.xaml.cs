@@ -77,7 +77,7 @@ namespace EMPCLIENT
                     data = new byte[256];
                     int bytes = stream.Read(data, 0, data.Length); //받는 데이터의 바이트배열, 인덱스, 길이
                     responses = Encoding.UTF8.GetString(data, 0, bytes);
-           
+                    test.Text += responses;
                     //MessageBox.Show(responses);
                     if (responses == "전송완료")
                     {
@@ -113,30 +113,43 @@ namespace EMPCLIENT
                 Thread.Sleep(100);
             }
 
-      
+            // 이거는 여러번 보내는거
             responses = "";
-            while (true) //
-            {
+            //while (true) //
+            //{
                 cc_info cc_Info = new cc_info();
                 data = null;
                 data = new byte[256];
                 int bytes = stream.Read(data, 0, data.Length); //받는 데이터의 바이트배열, 인덱스, 길이
                 responses = Encoding.UTF8.GetString(data, 0, bytes);
 
-                if (responses == "전송종료")
-                {
-                    break;
-                }
+                //if (responses == "전송종료")
+                //{
+                //    break;
+                //}
                 cc_info quest_data = new cc_info();
                 quest_data.ID = user_id.Text;
                 quest_data.SCORE = responses;
                 cc_info_List.Add(quest_data);
+                //Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(responses);
+                // 여기가 제이슨이 아니요 
+                //if (dictionary != null)
+                //{
+                //    //MyData quest_data = new MyData();
+                //    foreach (var kvp in dictionary)
+                //    {
+                //        cc_info quest_data = new cc_info();
+                //        quest_data.ID = kvp.Key;
+                //        quest_data.SCORE = kvp.Value;
+                //        cc_info_List.Add(quest_data);
+                //    }
+                //}
+            //}
+            score_listview.ItemsSource = cc_info_List;
+            score_listview.Items.Refresh();
 
-                score_listview.ItemsSource = cc_info_List;
-                score_listview.Items.Refresh();
+            //score_listview.ItemsSource = cc_info_List; // 리스트뷰 아이템에 넣기 
 
-                //score_listview.ItemsSource = cc_info_List; // 리스트뷰 아이템에 넣기 
-            }
 
         }
 

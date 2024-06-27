@@ -65,7 +65,7 @@ namespace Word
             }
             else if (responses == "일치하는 정보가 없습니다")
             {
-                txb1.Text = responses;
+               MessageBox.Show(responses);
             }
         }
 

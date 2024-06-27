@@ -59,7 +59,7 @@ namespace EMPCLIENT
 
             // 문제추가 시그널 보내기
             byte[] data;
-            string send_message = "";
+            string  send_message = "";
             send_message = "추가";
             data = null;
             data = Encoding.UTF8.GetBytes(send_message);
@@ -83,11 +83,12 @@ namespace EMPCLIENT
             string send_message;
             send_message = "미리보기";
             byte[] data;
-
+         
             data = null;
             data = Encoding.UTF8.GetBytes(send_message);
             stream.Write(data, 0, data.Length);
             Thread.Sleep(100);
+
 
             send_message = question_add_btn.Text; // 추가할 문제 검색어 
             if (!string.IsNullOrEmpty(send_message))
@@ -97,6 +98,7 @@ namespace EMPCLIENT
                 data = Encoding.UTF8.GetBytes(send_message); //검색어 변환
                 stream.Write(data, 0, data.Length); // 검색어 보내기 
                 Thread.Sleep(100);
+
             }
 
             MyData myData = new MyData();
@@ -105,29 +107,44 @@ namespace EMPCLIENT
             string responses = "";
             int bytes = stream.Read(data, 0, data.Length);
             responses = Encoding.UTF8.GetString(data, 0, bytes);
-            if (responses != "터짐")
+            if(responses != "터짐")
             {
-                testbox.Text = responses + "\n";
-                ////myData = JsonConvert.DeserializeObject<MyData>(responses); // 이것도 되나 ?
-                Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(responses);
-                if (dictionary != null)
-                {
-                    foreach (var kvp in dictionary)
-                    {
-                        MyData quest_data = new MyData();
-                        quest_data.word = kvp.Key;
-                        quest_data.meaning = kvp.Value;
-                        myDatas.Add(quest_data); // 
+                //MessageBox.Show("검색어를 정확히 입력해주세요!");
 
-                    }
-                    question_listview.ItemsSource = myDatas;
-                    question_listview.Items.Refresh();
+           
+            testbox.Text = responses + "\n";
+
+
+            ////myData = JsonConvert.DeserializeObject<MyData>(responses); // 이것도 되나 ?
+            Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(responses);
+            if (dictionary != null)
+            {
+                //MyData quest_data = new MyData();
+                foreach (var kvp in dictionary)
+                {
+                    MyData quest_data = new MyData();
+                    quest_data.word = kvp.Key;
+                    quest_data.meaning = kvp.Value;
+                    myDatas.Add(quest_data); // 
+
                 }
+                question_listview.ItemsSource = myDatas;
+                question_listview.Items.Refresh();
+            }
+
+
             }
             else
             {
                 MessageBox.Show("검색어를 정확히 입력해주세요!");
             }
         }
+
+
+        public void aass()
+        {
+
+        }
+
     }
 }

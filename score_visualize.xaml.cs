@@ -47,9 +47,12 @@ namespace EMPCLIENT
             Chart1.DataContext = this;
 
 
+
+
         }
         async public void graph(string User_id) // 실험용 이제 안씀
         {
+            //NetworkStream stream = MainPage.client.GetStream();
 
             // 차트 그리는 요청 메세지
             string send_msg;
@@ -92,11 +95,33 @@ namespace EMPCLIENT
 
             ));
         }
+        //async public void testgraph()
+        //{
 
+        //    await Dispatcher.BeginInvoke(new Action(() =>
+        //        {
+        //            for (int i = 0; i < 100; i++)
+        //            {
+        //                int testvalue = i;
+        //                C_Chart.Add(Convert.ToInt32(testvalue));
+
+        //            }
+        //            //C_Chart = null;
+        //            //ChartValues<double> value = new ChartValues<double>{1, 2, 3, 4, 5};
+        //            //C_Chart.Add(Convert.ToInt32(value));
+
+        //        }));
+        //}
+      
 
         async public void charttest(string User_id) // 차트 그리기 
         {
-           
+            //NetworkStream stream = MainPage.client.GetStream();
+
+            //Dispatcher.BeginInvoke(() =>
+            //{
+
+            //});
             // 차트 그리는 요청 메세지
             string send_msg;
             byte[] data;
@@ -123,7 +148,9 @@ namespace EMPCLIENT
                     {
                         break;
                     }
-                 
+                    // 여러명이 오는데 그걸 받기는 할 수 있어 그러면 키값으로 찾아서 각각의 학생을 구분해야함 흐음 흠터레스팅 
+                    // 여러명 와서 딕셔너리에 담아주고 내가 보여주고 사람것만 보여주면 되잖아 맞지? 맞아요~ 그러면 키값 비교만해서 내가 찾는 사람의  것만 받으면 되겠네 
+                    // 그것만 차트에 넣어주면 굳 굳굳  근데 어케함 ㅋ
                     Dictionary<string, string> dictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(responses);
                     // 우선 딕셔너리로 데이터 변환 함 이거
                     Dispatcher.BeginInvoke(new Action(() => // 
@@ -141,10 +168,13 @@ namespace EMPCLIENT
                                     C_Chart.Add(int.Parse(kvp.Value));// 차트에 넣기  
                                                                       //cc_info_List.Add(quest_data);
                                     question_Histories.Add(quest_data);// 받아서 리스트에 넣어주고 있음 그러면 여기서 전체 리스트의 리스트뷰에 넣어주기
+                                   
                                 }
+
                             }
                             testlistview.ItemsSource = question_Histories; // 
                             testlistview.Items.Refresh();
+
                         }
                     }));
 
@@ -154,8 +184,11 @@ namespace EMPCLIENT
 
         private void Button_Click(object sender, object e)
         {
+            //testgraph();
             string user_id = User_id.Text;
             charttest(user_id);
+            //User_id = null;
+
         }
     }
 }

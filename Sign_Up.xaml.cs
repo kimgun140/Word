@@ -76,11 +76,21 @@ namespace EMPCLIENT
             {
                 NavigationService.Navigate(
                                         new Uri("/Login_Page.xaml", UriKind.Relative));
+
             }
             else if (responses == "중복된아이디")
             {
                 MessageBox.Show(responses);
             }
+
+
+
+
+
+
         }
+
+
+
     }
 }

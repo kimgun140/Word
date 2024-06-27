@@ -66,6 +66,10 @@ namespace Word
                 {
                     NavigationService.Navigate(new Uri("/Home.xaml", UriKind.Relative));
                 }
+                else if (responses == "중복된아이디")
+                {
+                    MessageBox.Show("중복된 아이디 입니다.");
+                }
             }
             catch (Exception e)
             {

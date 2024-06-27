@@ -9,7 +9,8 @@
       Title="Edu">
 
     <Grid>
-        <TextBox x:Name="txt_mean" HorizontalAlignment="Center" Height="282" Margin="0,97,0,0" TextWrapping="Wrap" Text="뜻이 들어갈자리 입니다 뾰로롱" VerticalAlignment="Top" Width="716" Background="#99F3F3F3" BorderBrush="{x:Null}" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBox x:Name="txt_mean" HorizontalAlignment="Center" Height="224" Margin="0,97,0,0" TextWrapping="Wrap" Text="뜻이 들어갈자리 입니다 뾰로롱" VerticalAlignment="Top" Width="716" Background="#99F3F3F3" BorderBrush="{x:Null}" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True"/>
         <Label Content="학습하기" HorizontalAlignment="Left" Height="54" Margin="42,22,0,0" VerticalAlignment="Top" Width="248" FontSize="20"/>
+        <Button Content="다음" HorizontalAlignment="Center" Height="40" Margin="0,355,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click" Background="#FF80C0E2" BorderBrush="{x:Null}" Foreground="White" FontSize="16"/>
     </Grid>
 </Page>

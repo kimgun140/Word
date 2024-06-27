@@ -69,7 +69,9 @@ namespace EMPCLIENT
             Console.WriteLine($"responses: {responses}");
             if (responses == "채팅가능")
             {
-
+                //data = null;
+                //data = Encoding.UTF8.GetBytes(responses);
+                //stream.Write(data, 0, data.Length);
                 Dispatcher.BeginInvoke(new Action(() =>
                 {
                     txtbox_send1.IsReadOnly = false;
